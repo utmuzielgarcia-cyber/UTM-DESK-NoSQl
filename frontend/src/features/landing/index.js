@@ -1,0 +1,7 @@
+export { default as Hero } from './components/Hero.jsx'
+export { default as Stats } from './components/Stats.jsx'
+export { default as HowItWorks } from './components/HowItWorks.jsx'
+export { default as Categories } from './components/Categories.jsx'
+export { default as Roles } from './components/Roles.jsx'
+export { default as Testimonials } from './components/Testimonials.jsx'
+export { default as CallToAction } from './components/CallToAction.jsx'
