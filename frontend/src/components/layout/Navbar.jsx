@@ -41,7 +41,7 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden md:block">
-          <Button href="#acceso">Iniciar sesión</Button>
+          <Button href="/login">Iniciar sesión</Button>
         </div>
 
         <button
@@ -70,7 +70,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Button href="#acceso" className="w-full" onClick={() => setOpen(false)}>
+          <Button href="/login" className="w-full" onClick={() => setOpen(false)}>
             Iniciar sesión
           </Button>
         </div>

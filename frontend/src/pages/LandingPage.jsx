@@ -1,29 +1,33 @@
-import Navbar from '../components/layout/Navbar.jsx'
-import Footer from '../components/layout/Footer.jsx'
 import {
-  CallToAction,
-  Categories,
-  Hero,
-  HowItWorks,
-  Roles,
-  Stats,
-  Testimonials,
+  CategoriesSection,
+  FinalCta,
+  HeroSection,
+  IngredientsSection,
+  LandingFooter,
+  LandingNav,
+  Marquee,
+  ProductShowcase,
+  RolesSection,
+  StatsSection,
+  StorySection,
 } from '../features/landing/index.js'
 
 export default function LandingPage() {
   return (
-    <>
-      <Navbar />
+    <div className="overflow-x-clip bg-white text-ink">
+      <LandingNav />
       <main>
-        <Hero />
-        <Stats />
-        <HowItWorks />
-        <Categories />
-        <Roles />
-        <Testimonials />
-        <CallToAction />
+        <HeroSection />
+        <Marquee />
+        <StorySection />
+        <ProductShowcase />
+        <CategoriesSection />
+        <IngredientsSection />
+        <RolesSection />
+        <StatsSection />
+        <FinalCta />
       </main>
-      <Footer />
-    </>
+      <LandingFooter />
+    </div>
   )
 }

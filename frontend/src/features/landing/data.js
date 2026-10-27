@@ -1,131 +1,112 @@
 import {
   BarChart3,
   Building2,
+  Camera,
   ClipboardCheck,
   GraduationCap,
   HardHat,
+  History,
   Monitor,
   Search,
   Send,
   ShieldCheck,
+  Tags,
   UserCheck,
-  Wrench,
-  Camera,
-  History,
   UserCog,
+  Wrench,
 } from 'lucide-react'
 
-// Datos de ejemplo. Más adelante las estadísticas vendrán de la API.
-export const stats = [
-  { value: 1284, label: 'Incidencias cerradas este semestre', suffix: '' },
-  { value: 18.5, label: 'Horas promedio de atención', suffix: ' h', decimals: 1 },
-  { value: 24, label: 'Edificios conectados', suffix: '' },
-  { value: 96, label: 'Reportes resueltos a tiempo', suffix: '%' },
-]
-
-export const steps = [
+// Pasos de la narrativa por scroll.
+export const story = [
   {
     icon: Send,
+    kicker: 'Paso 01',
     title: 'Reporta',
-    description: 'Describe el problema, elige la categoría y el edificio, y adjunta fotos como evidencia.',
+    text: 'Elige categoría y edificio, describe el problema y sube fotos. Listo en menos de un minuto.',
+    color: 'bg-brand-600',
+    status: 'Abierta',
   },
   {
     icon: UserCheck,
+    kicker: 'Paso 02',
     title: 'Se asigna',
-    description: 'La coordinación revisa el reporte y lo asigna al técnico adecuado en minutos.',
+    text: 'Coordinación revisa el reporte y lo asigna al técnico ideal. Tú ves quién lo atiende.',
+    color: 'bg-brand-900',
+    status: 'Asignada',
   },
   {
     icon: Wrench,
+    kicker: 'Paso 03',
     title: 'Se atiende',
-    description: 'El técnico actualiza el estado, registra horas y sube evidencias del trabajo.',
+    text: 'El técnico actualiza el estado, registra horas y deja evidencia del trabajo.',
+    color: 'bg-accent-500',
+    status: 'En atención',
   },
   {
     icon: ClipboardCheck,
+    kicker: 'Paso 04',
     title: 'Se cierra',
-    description: 'Recibes la confirmación y el historial completo queda guardado con su folio.',
+    text: 'Recibes la confirmación y el historial completo queda guardado con su folio.',
+    color: 'bg-accent-400',
+    status: 'Cerrada',
   },
 ]
 
+// "Sabores": las tres categorías de incidencias.
 export const categories = [
   {
     icon: Monitor,
-    title: 'Cómputo y redes',
-    description: 'Equipos que no encienden, fallas de internet, proyectores, software y cuentas.',
-    examples: ['Wi‑Fi', 'Laboratorios', 'Proyectores'],
-    color: 'from-brand-500 to-brand-700',
+    name: 'Cómputo y redes',
+    tagline: 'Wi‑Fi, laboratorios, proyectores y cuentas.',
+    examples: ['Sin internet', 'PC no enciende', 'Proyector', 'Software'],
+    bg: 'bg-brand-600',
+    text: 'text-white',
+    chip: 'bg-white/15 text-white',
   },
   {
     icon: Building2,
-    title: 'Infraestructura',
-    description: 'Instalaciones eléctricas, agua, mobiliario, aires acondicionados y limpieza.',
-    examples: ['Electricidad', 'Mobiliario', 'Clima'],
-    color: 'from-accent-400 to-accent-500',
+    name: 'Infraestructura',
+    tagline: 'Electricidad, agua, clima y mobiliario.',
+    examples: ['Apagón', 'Fuga', 'Aire acondicionado', 'Butacas'],
+    bg: 'bg-accent-500',
+    text: 'text-ink',
+    chip: 'bg-ink/10 text-ink',
   },
   {
     icon: GraduationCap,
-    title: 'Académico',
-    description: 'Aulas, horarios, materiales y cualquier situación que afecte las clases.',
-    examples: ['Aulas', 'Horarios', 'Material'],
-    color: 'from-indigo-400 to-violet-600',
+    name: 'Académico',
+    tagline: 'Aulas, horarios y materiales de clase.',
+    examples: ['Aula ocupada', 'Horario', 'Material', 'Laboratorio'],
+    bg: 'bg-ink',
+    text: 'text-white',
+    chip: 'bg-white/15 text-white',
   },
+]
+
+// "Ingredientes": lo que hace funcionar a UTM Desk.
+export const ingredients = [
+  { icon: Camera, name: 'Evidencias en la nube', text: 'Fotos y archivos seguros con enlaces firmados.', color: 'text-brand-600' },
+  { icon: History, name: 'Historial completo', text: 'Cada cambio con fecha, hora y autor.', color: 'text-brand-900' },
+  { icon: Search, name: 'Búsqueda en español', text: 'Encuentra cualquier reporte escribiendo.', color: 'text-brand-600' },
+  { icon: BarChart3, name: 'Analítica', text: 'Incidencias por edificio y tendencias.', color: 'text-accent-500' },
+  { icon: Tags, name: 'Etiquetas', text: 'Ranking de los problemas más frecuentes.', color: 'text-brand-600' },
+  { icon: ShieldCheck, name: 'Permisos por rol', text: 'Cada quien ve solo lo que le toca.', color: 'text-brand-900' },
 ]
 
 export const roles = [
-  {
-    icon: Send,
-    title: 'Reportante',
-    description: 'Crea incidencias y da seguimiento únicamente a las suyas.',
-  },
-  {
-    icon: HardHat,
-    title: 'Técnico',
-    description: 'Atiende las incidencias asignadas: estado, horas, evidencias y etiquetas.',
-  },
-  {
-    icon: UserCog,
-    title: 'Coordinador',
-    description: 'Asigna y cierra incidencias, ve todo el campus y consulta la analítica.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Directivo',
-    description: 'Consulta en modo lectura los reportes y la analítica para tomar decisiones.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Soporte TI',
-    description: 'Da mantenimiento al sistema y gestiona el alta de usuarios.',
-  },
+  { icon: Send, name: 'Reportante', text: 'Crea y sigue sus incidencias.' },
+  { icon: HardHat, name: 'Técnico', text: 'Atiende lo que tiene asignado.' },
+  { icon: UserCog, name: 'Coordinador', text: 'Asigna, cierra y lo ve todo.' },
+  { icon: BarChart3, name: 'Directivo', text: 'Consulta reportes y analítica.' },
+  { icon: ShieldCheck, name: 'Soporte TI', text: 'Mantiene el sistema y los usuarios.' },
 ]
 
-export const features = [
-  { icon: Camera, title: 'Evidencias', description: 'Fotos y archivos guardados de forma segura en la nube.' },
-  { icon: History, title: 'Historial', description: 'Cada cambio de estado queda registrado con fecha y autor.' },
-  { icon: Search, title: 'Búsqueda', description: 'Encuentra cualquier reporte escribiendo en español.' },
-  { icon: BarChart3, title: 'Analítica', description: 'Incidencias por edificio y etiquetas más frecuentes.' },
+// Datos de ejemplo; más adelante vendrán de la API.
+export const stats = [
+  { value: 1284, label: 'incidencias cerradas', suffix: '' },
+  { value: 18.5, label: 'horas promedio de atención', suffix: 'h', decimals: 1 },
+  { value: 24, label: 'edificios conectados', suffix: '' },
+  { value: 96, label: 'resueltas a tiempo', suffix: '%' },
 ]
 
-// Testimonios de ejemplo para el prototipo.
-export const testimonials = [
-  {
-    quote:
-      'Antes mandaba correos y nunca sabía si alguien los leía. Ahora veo en qué estado va mi reporte con su folio.',
-    name: 'Daniela R.',
-    role: 'Estudiante de Ingeniería',
-    initials: 'DR',
-  },
-  {
-    quote:
-      'Tengo mis incidencias asignadas en un solo lugar y puedo subir la foto del trabajo terminado desde el celular.',
-    name: 'Marco A.',
-    role: 'Técnico de redes',
-    initials: 'MA',
-  },
-  {
-    quote:
-      'La analítica por edificio nos ayudó a detectar dónde se concentran las fallas y planear el mantenimiento.',
-    name: 'Laura G.',
-    role: 'Coordinación de servicios',
-    initials: 'LG',
-  },
-]
+export const marqueeWords = ['Reporta', 'Asigna', 'Atiende', 'Cierra', 'Evidencia', 'Folio', 'Analítica', 'Campus']

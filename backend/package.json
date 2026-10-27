@@ -1,0 +1,29 @@
+{
+  "name": "utm-desk-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "API de UTM Desk: Node.js + Express + driver oficial de MongoDB",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch --env-file=.env src/server.js",
+    "dev:memoria": "node scripts/dev-memoria.js",
+    "start": "node --env-file=.env src/server.js",
+    "db:setup": "node --env-file=.env scripts/setup-db.js",
+    "db:seed": "node --env-file=.env scripts/seed.js",
+    "test": "node --test test/"
+  },
+  "engines": {
+    "node": ">=20.6"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.17.0"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^10.1.4"
+  }
+}

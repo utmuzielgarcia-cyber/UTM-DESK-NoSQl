@@ -14,7 +14,7 @@ const columns = [
     title: 'Proyecto',
     links: [
       { href: '#testimonios', label: 'Testimonios' },
-      { href: '#acceso', label: 'Iniciar sesión' },
+      { href: '/login', label: 'Iniciar sesión' },
     ],
   },
 ]
